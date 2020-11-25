@@ -33,9 +33,9 @@ public class LevelManager {
         int row = 0;
         ImageBlock leftBoundary = null;
         ImageBlock rightBoundary = null;
-        Set<ImageWeakBlock> imageWeakBlocks = new HashSet<>();
-        Set<ImageSolidBlock> imageBlocks = new HashSet<>();
-        Set<EnemyImageBlock> dynamicHorizontal = new HashSet<>();
+        List<ImageWeakBlock> imageWeakBlocks = new ArrayList<>();
+        List<ImageSolidBlock> imageBlocks = new ArrayList<>();
+        List<EnemyImageBlock> dynamicHorizontal = new ArrayList<>();
         int[] matrixLevel = levels.get(levelName);
         for (int i = 0; i < matrixLevel.length; i++) {
             if(i % COLUMNS == 0 ) row++;

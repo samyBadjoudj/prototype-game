@@ -9,23 +9,26 @@ import company.actor.set.ImageWeakBlock;
 import company.animation.AlphabetSpriteAnimator;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Level {
 
-    private final LevelName name;
-    private final Set<Bullet> bullets = new HashSet<>();
-    private final Set<ImageWeakBlock> imageWeakBlocks;
-    private final Map<String,AlphabetSpriteAnimator> dialog;
-    private final Map<String,AlphabetSpriteAnimator> activeDialog = new HashMap<>();
-    private final Set<EnemyImageBlock> dynamicHorizontals;
-    private final Set<Actor> all = new HashSet<>();
-    private final Set<ImageSolidBlock> imageBlocks;
-    private final ImageBlock leftBoundary;
-    private final ImageBlock rightBoundary;
+    private LevelName name;
+    private List<Bullet> bullets = new ArrayList<>();
+    private List<ImageWeakBlock> imageWeakBlocks;
+    private Map<String,AlphabetSpriteAnimator> dialog;
+    private Map<String,AlphabetSpriteAnimator> activeDialog = new HashMap<>();
+    private List<EnemyImageBlock> dynamicHorizontals = new ArrayList<>();
+    private List<Actor> all = new ArrayList<>();
+    private List<ImageSolidBlock> imageBlocks;
+    private ImageBlock leftBoundary;
+    private ImageBlock rightBoundary;
 
 
-    public Level(LevelName name, Set<ImageWeakBlock> imageWeakBlocks, Map<String, AlphabetSpriteAnimator> dialog, Set<ImageSolidBlock> imageBlocks, Set<EnemyImageBlock> dynamicHorizontal, ImageBlock leftBoundary, ImageBlock rightBoundary) {
+    public Level(LevelName name, List<ImageWeakBlock> imageWeakBlocks, Map<String, AlphabetSpriteAnimator> dialog, List<ImageSolidBlock> imageBlocks, List<EnemyImageBlock> dynamicHorizontal, ImageBlock leftBoundary, ImageBlock rightBoundary) {
         this.name = name;
         this.imageWeakBlocks = imageWeakBlocks;
         this.dialog = dialog;
@@ -42,33 +45,33 @@ public class Level {
         return name;
     }
 
-    public Set<ImageWeakBlock> getImageWeakBlocks() {
+    public List<ImageWeakBlock> getImageWeakBlocks() {
         return imageWeakBlocks;
     }
 
-    public Set<ImageSolidBlock> getImageBlocks() {
+    public List<ImageSolidBlock> getImageBlocks() {
         return imageBlocks;
     }
 
-    public Set<? extends Actor> getAll() {
+    public List<? extends Actor> getAll() {
         return all;
     }
 
     public void addBullet(Bullet bullet) {
 
 
-            this.bullets.add(bullet);
+        this.bullets.add(bullet);
 
         synchronized (all){
             this.all.add(bullet);
         }
     }
 
-    public Set<EnemyImageBlock> getDynamicHorizontals() {
+    public List<EnemyImageBlock> getDynamicHorizontals() {
         return dynamicHorizontals;
     }
 
-    public Set<Bullet> getBullets() {
+    public List<Bullet> getBullets() {
         return this.bullets;
     }
 

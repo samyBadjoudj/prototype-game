@@ -22,6 +22,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class GameController {
@@ -116,7 +117,8 @@ public class GameController {
         }
     }
 
-    private void clean(@NotNull Set<? extends Actor> actor, boolean checkOutOfBounds) {
+    private void clean(@NotNull List<? extends Actor> actor, boolean checkOutOfBounds) {
+        //TODO use set for lower complexity
         synchronized (actor){
             Iterator<? extends  Actor> iterator = actor.iterator();
             while (iterator.hasNext()) {
@@ -213,7 +215,6 @@ public class GameController {
     }
     private static ImageSolidBlock getBlockBottom(Actor player){
         for (ImageSolidBlock block: currentLevel.getImageBlocks()) {
-            //player.positionX,player.positionY,player.width,player.height
             if (block.getBottomBounds().intersects(player.getTopBounds())) {
                 return block;
             }
