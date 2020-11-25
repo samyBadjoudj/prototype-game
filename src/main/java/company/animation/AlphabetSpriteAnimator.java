@@ -35,9 +35,10 @@ public class AlphabetSpriteAnimator implements SpriteAnimator {
     public void animate(Graphics graphics) {
         //TODO CENTER RELATIVELY
         graphics.setColor(Color.BLACK);
-        graphics.fillRect(Main.width-500,Main.height/4,200,200);
+        final int sizeSquare = 200;
+        graphics.fillRect((Main.width/2)-sizeSquare/2,(Main.height/2)-sizeSquare/2, sizeSquare, sizeSquare);
         graphics.setColor(Color.WHITE);
-        graphics.drawString(onScreen.toString(),Main.width-425,(Main.height/4) +100);
+        graphics.drawString(onScreen.toString(),Main.width/2 - onScreen.length() * 7,(Main.height/2));
 
     }
 
@@ -50,7 +51,7 @@ public class AlphabetSpriteAnimator implements SpriteAnimator {
         }
     }
 
-    public void markForDeleteion(){
+    public void markForDeletion(){
         if(toDraw.length()-1<= currentChar){
             this.markedForDeletion = true;
         }

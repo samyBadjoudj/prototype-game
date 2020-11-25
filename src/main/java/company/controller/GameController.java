@@ -55,7 +55,7 @@ public class GameController {
 
     public static void action() {
         if(gameState == GameState.DIALOG){
-            currentLevel.getActiveDialog().values().forEach(AlphabetSpriteAnimator::markForDeleteion);
+            currentLevel.getActiveDialog().values().forEach(AlphabetSpriteAnimator::markForDeletion);
         }else {
             GameController.triggerDialog();
         }
