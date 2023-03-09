@@ -14,3 +14,4 @@ I'll demostrate with some schemas, illustrated with code, some basic approaches 
 - pattern in video games (main loop, events..)
 
 Work in progress but there short video of the prototype game running [Video](https://vimeo.com/483738054) 
+![prototype game screenshot](https://raw.githubusercontent.com/samyBadjoudj/prototype-game/main/screenshot.png)
